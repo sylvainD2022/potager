@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Liste des carres</title>
+</head>
+<body>
+<H1>La liste des carres</H1>
+<ul>
+	<li th:each="carre : ${list}">
+		<span th:text="${carre.potager}" />
+		<span th:text="${carre.surface}" />
+		<span th:text="${carre.typeSol}" />
+		<span th:text="${carre.typeExposition}" />
+		<a th:href="@{/potagerApp/carre/del/{id}(id=${carre.idCarre})}">delete</a>
+		<a th:href="@{/potagerApp/carre/update/{id}(id=${carre.idCarre})}">update</a>
+	</li>
+</ul>
+<a href="/potagerApp/carre/addCarre">add</a>
+<br>
+<a href="/potagerApp">retour menu</a>
+</body>
+</html>

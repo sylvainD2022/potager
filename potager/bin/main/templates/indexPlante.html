@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Liste des plantes</title>
+</head>
+<body>
+<H1>La liste des plantes</H1>
+<ul>
+	<li th:each="plante : ${list}">
+		<span th:text="${plante.nom}" />
+		<span th:text="${plante.type}" />
+		<span th:text="${plante.variete}" />
+		<span th:text="${plante.surfaceOccupe}" />
+		<a th:href="@{/potagerApp/plante/del/{id}(id=${plante.idPlante})}">delete</a>
+		<a th:href="@{/potagerApp/plante/update/{id}(id=${plante.idPlante})}">update</a>
+	</li>
+</ul>
+<a href="/potagerApp/plante/addPlante">add</a>
+<br>
+<a href="/potagerApp">retour menu</a>
+</body>
+</html>

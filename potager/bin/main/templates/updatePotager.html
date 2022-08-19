@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Modification d'un potager</title>
+</head>
+<body>
+<h1>Mise a jour</h1>
+<form th:action="@{/potagerApp/potager/update/{id}(id=${potager.idPotager})}" th:object="${potager}" method="post">
+	<label for="nom">nom:</label>
+	<input type="text" th:field="*{nom}" id="nom"/>
+	<span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"/>
+	<br>
+	<label for="localisation">localisation:</label>
+	<input type="text" th:field="*{localisation}" id="localisation"/>
+	<span th:if="${#fields.hasErrors('localisation')}" th:errors="*{localisation}"/>
+	<br>
+	<label for="surface">surface:</label>
+	<input type="number" th:field="*{surface}" id="surface"/>
+	<span th:if="${#fields.hasErrors('surface')}" th:errors="*{surface}"/>
+	<br>
+	<label for="ville">ville:</label>
+	<input type="text" th:field="*{ville}" id="ville"/>
+	<span th:if="${#fields.hasErrors('ville')}" th:errors="*{ville}"/>
+	<br>
+	<input type="submit" value="valider"/>
+</form>
+</body>
+</html>

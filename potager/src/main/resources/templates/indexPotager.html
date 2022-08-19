@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Liste des potagers</title>
+</head>
+<body>
+<H1>La liste des potagers</H1>
+<ul>
+	<li th:each="potager : ${list}">
+		<span th:text="${potager.nom}" />
+		<span th:text="${potager.localisation}" />
+		<span th:text="${potager.surface}" />
+		<span th:text="${potager.ville}" />
+		<a th:href="@{/potagerApp/potager/del/{id}(id=${potager.idPotager})}">delete</a>
+		<a th:href="@{/potagerApp/potager/update/{id}(id=${potager.idPotager})}">update</a>
+	</li>
+</ul>
+<a href="/potagerApp/potager/add">add</a>
+<br>
+<a href="/potagerApp">retour menu</a>
+</body>
+</html>

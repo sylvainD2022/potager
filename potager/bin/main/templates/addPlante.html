@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Saisie d'une plante</title>
+</head>
+<body>
+<h1>Saisie</h1>
+	<form th:action="@{/potagerApp/plante/addPlante}" th:object="${plante}" method="post">
+	<label for="nom">nom:</label>
+	<input type="text" th:field="*{nom}" id="nom"/>
+	<span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"/>
+	<br>
+	<label for="type">type:</label>
+	<select th:field="*{type}" id="type">
+		<option value="">--Please choose an option--</option>
+		<option th:each ="categorie : ${categorie}" 
+				th:value ="${categorie}"
+				th:text ="${categorie}">
+				</option>
+	</select>
+	<span th:if="${#fields.hasErrors('type')}" th:errors="*{type}"/>
+	<br>
+	<label for="variete">variete:</label>
+	<input type="text" th:field="*{variete}" id="variete"/>
+	<span th:if="${#fields.hasErrors('variete')}" th:errors="*{variete}"/>
+	<br>
+	<label for="surfaceOccupe">surfaceOccupe:</label>
+	<input type="number" th:field="*{surfaceOccupe}" id="surfaceOccupe"/>
+	<span th:if="${#fields.hasErrors('surfaceOccupe')}" th:errors="*{surfaceOccupe}"/>
+	<br>
+	<input type="submit" value="valider"/>
+</form>
+</body>
+</html>

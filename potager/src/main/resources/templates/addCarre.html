@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Saisie d'un carre</title>
+</head>
+<body>
+<h1>Saisie</h1>
+	<form th:action="@{/potagerApp/carre/addCarre}" th:object="${carre}" method="post">
+	<label for="potager">potager:</label>
+	<!--<input type="text" th:field="*{potager}" id="potager"/>-->
+	<select th:field="*{potager}" id="potager">
+		<option value="">--Please choose an option--</option>
+		<option th:each ="potager : ${potager}" 
+				th:value ="${potager}"
+				th:text ="${potager.nom}">
+		</option>
+	</select>
+	<span th:if="${#fields.hasErrors('potager')}" th:errors="*{potager}"/>
+	<br>
+	<label for="surface">surface:</label>
+	<input type="number" th:field="*{surface}" id="surface"/>
+	<span th:if="${#fields.hasErrors('surface')}" th:errors="*{surface}"/>
+	<br>
+	<label for="typeExposition">typeExposition:</label>
+	<select th:field="*{typeExposition}" id="typeExposition">
+		<option value="">--Please choose an option--</option>
+		<option th:each ="typeExposition : ${typeExposition}" 
+				th:value ="${typeExposition}"
+				th:text ="${type d'exposition}">
+		</option>
+	</select>
+	<span th:if="${#fields.hasErrors('typeExposition')}" th:errors="*{typeExposition}"/>
+	<br>
+	<label for="typesol">typeSol:</label>
+	<input type="text" th:field="*{typeSol}" id="typeSol"/>
+	<span th:if="${#fields.hasErrors('typeSol')}" th:errors="*{typeSol}"/>
+	
+	<br>
+	<input type="submit" value="valider"/>
+</form>
+</body>
+</html>
